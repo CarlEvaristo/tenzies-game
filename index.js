@@ -19,7 +19,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}))  
 
 //MONGO
-mongoose.connect('mongodb://localhost:27017/tenzies', { useNewUrlParser: true })
+// mongoose.connect('mongodb://localhost:27017/tenzies', { useNewUrlParser: true })
+mongoose.connect('mongodb+srv://Admin-Carlos:Everest-78-Harderwijk@cluster0.odufbde.mongodb.net/tenzies', { useNewUrlParser: true })
+
 
 const scoreSchema = new mongoose.Schema ({	
   name: String, 				
