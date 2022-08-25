@@ -23,9 +23,6 @@ function Main(){
 
 
     function handleSubmit(event) {
-        if (submitted) {
-            return;
-        }
         setSubmitted(true)
         event.preventDefault()
         const requestOptions = {
@@ -128,12 +125,15 @@ function Main(){
                 </> : 
                 <>
                     <Confetti />
-                    <div className="inline"><p>Your Score: {turn} rolls</p><button onClick={newGame}>New Game</button></div>
-                    <form className="inline" onSubmit={handleSubmit}>	
-                        <input type="text" name="name" placeholder="Your Name" onChange={handleChange} />  
-                        <button>Save Score</button>
-                    </form>
-                    <Highscore highScore={highScore} />
+                    {!submitted ?
+                    <>
+                        <div className="inline"><p>Your Score: {turn} rolls</p><button onClick={newGame}>New Game</button></div>
+                        <form className="inline" onSubmit={handleSubmit}>	
+                            <input type="text" name="name" placeholder="Your Name" onChange={handleChange} />  
+                            <button>Save Score</button>
+                        </form>
+                    </> : 
+                    <Highscore highScore={highScore} />}
                 </> }    
         </main>
     )
