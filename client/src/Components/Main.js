@@ -62,7 +62,8 @@ function Main(){
         setScore({
             name:"",
             score:0
-        })      
+        }) 
+        setSubmitted(false)     
     }
 
     function getRandomDice(){
