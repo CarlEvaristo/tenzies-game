@@ -13,6 +13,7 @@ function Main(){
         score:0
     })
     const [highScore, setHighScore] = React.useState([])
+    const [submitted, setSubmitted] = React.useState(false)
 
     React.useEffect(() => {
         fetch("/api")
@@ -22,8 +23,11 @@ function Main(){
 
 
     function handleSubmit(event) {
+        if (submitted) {
+            return;
+        }
+        setSubmitted(true)
         event.preventDefault()
-        event.currentTarget.disabled = true;
         const requestOptions = {
             method: "POST",
             headers: {
