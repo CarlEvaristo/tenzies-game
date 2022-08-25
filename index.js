@@ -4,6 +4,10 @@ import mongoose from 'mongoose'
 import cors from "cors"
 import path from "path"
 
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
 const app = express()            
 
 let corsOptions = {             //=> this is very important when running react and express both on localhost
