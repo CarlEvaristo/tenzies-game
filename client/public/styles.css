@@ -1,0 +1,114 @@
+* {
+    box-sizing: border-box;
+}
+html{
+    font-size: 100%;
+}
+body{
+    margin:0;
+    background-color:#0B2434;
+    width:100vw;
+    height:100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Inter', sans-serif;
+    font-family: 'Karla', sans-serif;
+    font-size: 1.6rem;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60vw;
+    padding:20px;
+    border-radius: 10px;
+    background-color: #F5F5F5;
+}
+h1{
+    margin:0;
+    font-family: 'Karla', sans-serif;
+    font-size: 3rem;
+    color: #2B283A;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+}
+.subText{
+    text-align: center;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 2.2rem;
+    letter-spacing: -0.03em;
+    color: #4A4E74;
+    margin: 10px 80px;
+}
+.diceContainer{
+    display: grid;
+    grid-template: 60px 60px / 60px 60px 60px 60px 60px ;
+    gap:10px;
+    padding:20px;
+}
+
+.dice {
+    aspect-ratio: 1;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.155);
+    cursor: pointer;
+}
+.dice p {
+    font-size: 3rem;
+    margin:0;
+}
+.disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+    color: #c0c0c0;
+    background-color: #dfdfdf;
+}
+.inline {
+    display:flex;
+    align-items: center;
+}
+form input,button {
+    cursor: pointer;
+    margin:1em;
+    padding:0.5em 2em;
+    border: none;
+    background-color: #5035FF;
+    border-radius: 8px;
+    font-size: 1.5rem;
+    color: #fff;
+    box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.155);
+}
+form button:hover {
+    background-color: #3679ff;
+    width:50%;
+}
+form button:active {
+    background-color: #1d03c7;
+    box-shadow: inset 3px 5px 5px rgba(0, 0, 0, 0.155);
+}
+form input {
+    background-color: #ffffff;
+    color: #000;
+}
+ol {
+    margin-top:0;
+}
+@media (max-width:800px) {
+    main{
+        width: 95vw;
+    }
+    .subText{
+        font-size: 1.3rem;
+        line-height: 1.8rem;
+        margin: 10px;
+    }
+}
