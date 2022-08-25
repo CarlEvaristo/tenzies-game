@@ -7,13 +7,13 @@ export default function Highscore(props){
              return <li key={index}>{score.name} {score.score}</li>
         })
     } else {
-        highScoreElements = "test"
+        highScoreElements = "No Scores Yet"
     }
 
 
     return(
         <>
-            <p>High Score:</p>
+            <p>High Score Top 10:</p>
             <ol className="highScore">
                 {highScoreElements}
             </ol>

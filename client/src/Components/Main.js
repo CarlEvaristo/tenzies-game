@@ -23,6 +23,7 @@ function Main(){
 
     function handleSubmit(event) {
         event.preventDefault()
+        event.currentTarget.disabled = true;
         const requestOptions = {
             method: "POST",
             headers: {
@@ -112,22 +113,24 @@ function Main(){
 
     return(
         <main>
-            {isFinished && <Confetti />}
-            <h1>Tenzies</h1>
-            <p className="subText">Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
-            <div className="diceContainer">
-                {diceElements}
-            </div>
-            {isFinished ? 
+            {!isFinished ? 
                 <>
+                    <h1>Tenzies</h1>
+                    <p className="subText">Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
+                    <div className="diceContainer">
+                        {diceElements}
+                    </div>
+                    <button onClick={handleThrow}>Roll</button>
+                </> : 
+                <>
+                    <Confetti />
                     <div className="inline"><p>Your Score: {turn} rolls</p><button onClick={newGame}>New Game</button></div>
                     <form className="inline" onSubmit={handleSubmit}>	
                         <input type="text" name="name" placeholder="Your Name" onChange={handleChange} />  
                         <button>Save Score</button>
                     </form>
-                </> : 
-                <button onClick={handleThrow}>Roll</button>}
-                <Highscore highScore={highScore} />
+                    <Highscore highScore={highScore} />
+                </> }    
         </main>
     )
 }

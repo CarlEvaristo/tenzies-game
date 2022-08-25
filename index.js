@@ -38,13 +38,13 @@ app.post('/api', (request, response) => {
   })       			 
 }) 
 
-// let myArray = [{ name: "Carlos", score: 12}, { name: "Sam", score: 9}]
 
 app.get('/api', (req, res) => {     		 
   Score.find(function(err, scores) {				
     if (err) { res.send(err) }							 
     else { 
-      scores.sort((a, b) => parseFloat(a.score) - parseFloat(b.score))
+      scores.sort((a, b) => parseFloat(a.score) - parseFloat(b.score))  // sort: least rolls to most rolls
+      scores = scores.slice(0, 10)  // show only first 10 scores
       res.json(scores)
     }
   })
