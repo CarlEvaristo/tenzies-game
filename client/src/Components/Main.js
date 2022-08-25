@@ -133,7 +133,10 @@ function Main(){
                             <button>Save Score</button>
                         </form>
                     </> : 
-                    <Highscore highScore={highScore} />}
+                    <>
+                        <Highscore highScore={highScore} />
+                        <button onClick={newGame}>New Game</button>
+                    </> }
                 </> }    
         </main>
     )
