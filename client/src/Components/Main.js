@@ -8,7 +8,7 @@ function Main(){
     const [isFinished, setIsFinished] = React.useState(false)
     const [diceValue, setDiceValue] = React.useState(0)
     const [allDice, setAllDice] = React.useState(newDiceArray())
-    const [elements, setElements] = React.useState(renderDiceElements())
+    const [elements, setElements] = React.useState([])
     const [score, setScore] = React.useState({
         name:"",
         score:0
@@ -80,17 +80,6 @@ function Main(){
     }, [allDice])
 
 
-   function handleClick(index, value) {
-        if (diceValue === 0) {
-            setDiceValue(value)
-        }
-        if (diceValue === 0 || diceValue === value) {
-            return setAllDice(prevDice => prevDice.map(dice => {
-                return (dice.id === index) ? {...dice, isFinished:true} : dice
-            }))
-        } 
-    }
-
     function handleThrow(){
         setTurn(prevValue => prevValue + 1)
         let finishedArray = allDice.filter(item => item.isFinished)
@@ -102,6 +91,17 @@ function Main(){
     }
 
     React.useEffect(()=>{
+        function handleClick(index, value) {
+            if (diceValue === 0) {
+                setDiceValue(value)
+            }
+            if (diceValue === 0 || diceValue === value) {
+                return setAllDice(prevDice => prevDice.map(dice => {
+                    return (dice.id === index) ? {...dice, isFinished:true} : dice
+                }))
+            } 
+        }
+
         setElements(allDice.map(dice => {
             return(
                 <Dice 
@@ -112,7 +112,7 @@ function Main(){
                     handleClick={handleClick}/>
             )
         }))
-    }, [allDice, handleClick])
+    }, [allDice, diceValue])
 
     // const diceElements = allDice.map(dice => {
     //     return(
