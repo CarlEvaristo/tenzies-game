@@ -82,9 +82,9 @@ form {
     flex-direction: column;
 }
 input {
-    width: 50%;
+    width: 70%;
 }
-form input, form button {
+form input, .btn {
     cursor: pointer;
     margin:1em;
     padding:0.5em 2em;
@@ -95,14 +95,14 @@ form input, form button {
     color: #fff;
     box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.155);
 }
-form button {
+.btn {
     white-space: nowrap;
     min-width: max-content;
 }
-form button:hover {
+.btn:hover {
     background-color: #3679ff;
 }
-form button:active {
+.btn:active {
     background-color: #1d03c7;
     box-shadow: inset 3px 5px 5px rgba(0, 0, 0, 0.155);
 }
@@ -112,6 +112,7 @@ form input {
 }
 .btnLink {
     cursor: pointer;
+    text-decoration: none;
     margin:1em;
     padding:0.5em 2em;
     background-color: #5035FF;

@@ -130,14 +130,16 @@ function Main(){
                     <>
                         <p>Your Score: {turn} rolls</p>
                         <form className="inline" onSubmit={handleSubmit}>	
-                            <input type="text" name="name" placeholder="Your Name" onChange={handleChange} /> 
-                            <button>Save</button>
-                            <a href="" onClick={newGame} className="btnLink">New Game</a>
+                            <input type="text" name="name" placeholder="Your Name" onChange={handleChange} />
+                            <div className="inline">
+                                <button className="btn">Save</button>
+                                <a href="" onClick={newGame} className="btnLink">New Game</a>
+                            </div>
                         </form>
                     </> : 
                     <>
                         <Highscore highScore={highScore} />
-                        <button onClick={newGame}>New Game</button>
+                        <button onClick={newGame} className="btn">New Game</button>
                     </> }
                 </> }    
         </main>
