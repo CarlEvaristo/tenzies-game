@@ -1,4 +1,5 @@
 import React from "react"
+import nanoid from "nanoid"
 
 export default function Dice(props){
     let diceValueChar = ""
@@ -21,7 +22,7 @@ export default function Dice(props){
             className={["dice", "diceAnimation"].join(' ')}
             style={{backgroundColor: props.isFinished ? "#59E391" : "#fff"}} 
             onClick={()=>props.handleClick(props.id, props.value)}
-            key={props.value}
+            key={nanoid()}
             >
             {/* <p>{props.value}</p> */}
             <i class={diceValueChar}></i>
