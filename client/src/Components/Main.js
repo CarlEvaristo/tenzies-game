@@ -100,16 +100,29 @@ function Main(){
         }
     }
 
-    const diceElements = allDice.map(dice => {
-        return(
-            <Dice 
-                key={dice.id} 
-                id={dice.id} 
-                value={dice.value} 
-                isFinished={dice.isFinished} 
-                handleClick={handleClick}/>
-        )
-    })
+    function renderDiceElements () {
+        return allDice.map(dice => {
+            return(
+                <Dice 
+                    key={dice.id} 
+                    id={dice.id} 
+                    value={dice.value} 
+                    isFinished={dice.isFinished} 
+                    handleClick={handleClick}/>
+            )
+        })
+    }
+
+    // const diceElements = allDice.map(dice => {
+    //     return(
+    //         <Dice 
+    //             key={dice.id} 
+    //             id={dice.id} 
+    //             value={dice.value} 
+    //             isFinished={dice.isFinished} 
+    //             handleClick={handleClick}/>
+    //     )
+    // })
 
     return(
         <main>
@@ -118,7 +131,7 @@ function Main(){
                     <h1>Tenzies</h1>
                     <p className="subText">Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
                     <div className="diceContainer">
-                        {diceElements}
+                        {renderDiceElements}
                     </div>
                     <button onClick={handleThrow} className="btn">Roll</button>
                 </> : 
