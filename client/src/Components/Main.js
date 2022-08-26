@@ -8,7 +8,7 @@ function Main(){
     const [isFinished, setIsFinished] = React.useState(false)
     const [diceValue, setDiceValue] = React.useState(0)
     const [allDice, setAllDice] = React.useState(newDiceArray())
-    const [elements, setElements] = React.useState([])
+    const [elements, setElements] = React.useState(newElementsArray())
     const [score, setScore] = React.useState({
         name:"",
         score:0
@@ -109,11 +109,12 @@ function Main(){
         setTurn(prevValue => prevValue + 1)
         let finishedArray = allDice.filter(item => item.isFinished)
         if (finishedArray.length !== 0) {
-            return setAllDice(prevDice => prevDice.map(dice => {
+            setAllDice(prevDice => prevDice.map(dice => {
                 return (dice.isFinished === false) ? {...dice, value: getRandomDice()} : dice
             }))
+            setElements(newElementsArray())
         }
-        setElements(newElementsArray())
+        
     }
 
 
