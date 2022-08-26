@@ -90,17 +90,7 @@ function Main(){
         } 
     }
 
-    function handleThrow(){
-        setTurn(prevValue => prevValue + 1)
-        let finishedArray = allDice.filter(item => item.isFinished)
-        if (finishedArray.length !== 0) {
-            return setAllDice(prevDice => prevDice.map(dice => {
-                return (dice.isFinished === false) ? {...dice, value: getRandomDice()} : dice
-            }))
-        }
-    }
-
-    const diceElements = allDice.map(dice => {
+    let diceElements = allDice.map(dice => {
         return(
             <Dice 
                 key={dice.id} 
@@ -111,6 +101,16 @@ function Main(){
         )
     })
 
+
+    function handleThrow(){
+        setTurn(prevValue => prevValue + 1)
+        let finishedArray = allDice.filter(item => item.isFinished)
+        if (finishedArray.length !== 0) {
+            return setAllDice(prevDice => prevDice.map(dice => {
+                return (dice.isFinished === false) ? {...dice, value: getRandomDice()} : dice
+            }))
+        }
+    }
 
 
     return(
