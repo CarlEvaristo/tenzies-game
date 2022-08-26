@@ -72,13 +72,6 @@ function Main(){
         )
     }
 
-    // React.useEffect(()=>{
-    //     let finishedArray = allDice.filter(item => item.isFinished)
-    //     finishedArray.length === 1 && setDiceValue(finishedArray[0].value)
-    //     finishedArray.length === 10 && setIsFinished(true)                    
-    // }, [allDice])
-
-
    function handleClick(index, value) {
         if (diceValue === 0) {
             setDiceValue(value)
@@ -93,8 +86,6 @@ function Main(){
         finishedArray.length === 10 && setIsFinished(true)       
     }
 
-    let diceElements
-    
     function handleThrow(){
         setTurn(prevValue => prevValue + 1)
         let finishedArray = allDice.filter(item => item.isFinished)
@@ -102,22 +93,7 @@ function Main(){
             setAllDice(prevDice => prevDice.map(dice => {
                 return (dice.isFinished === false) ? {...dice, value: getRandomDice()} : dice
             }))
-
-
-            diceElements = allDice.map(dice => {
-                return(
-                    <Dice 
-                        key={dice.id} 
-                        id={dice.id} 
-                        value={dice.value} 
-                        isFinished={dice.isFinished} 
-                        handleClick={handleClick}/>
-                )
-            })
-
-
         }
-    
     }
 
     // const diceElements = allDice.map(dice => {
@@ -130,16 +106,27 @@ function Main(){
     //             handleClick={handleClick}/>
     //     )
     // })
+    const diceElements = () => {
+        return allDice.map(dice => {
+            return(
+                <Dice 
+                    key={dice.id} 
+                    id={dice.id} 
+                    value={dice.value} 
+                    isFinished={dice.isFinished} 
+                    handleClick={handleClick}/>
+            )
+        })
+    }
 
-
-    return(
+        return(
         <main>
             {!isFinished ? 
                 <>
                     <h1>Tenzies</h1>
                     <p className="subText">Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
                     <div className="diceContainer">
-                        {diceElements}
+                        {diceElements()}
                     </div>
                     <button onClick={handleThrow} className="btn">Roll</button>
                 </> : 
