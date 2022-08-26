@@ -155,4 +155,17 @@ ol {
     .inline {
         flex-direction: column;
     }
+    .btnLink {
+        width:100%;
+        margin-left:0;
+        margin-right:0;
+        padding-left:0;
+        padding-right:0;
+        display:block;
+        text-align:center;
+    }
+    .inline .btn {
+        width:100%; 
+    }
 }
+
