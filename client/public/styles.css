@@ -134,16 +134,14 @@ form input {
 ol {
     margin-top:0;
 }
-@media (max-width:1300px) {
+
+@media (max-width:800px) {
     form {
         width:100%;
     }
     input {
-        width:100%;
         margin:1em 0;
     }
-}
-@media (max-width:800px) {
     main{
         width: 95%;
     }
