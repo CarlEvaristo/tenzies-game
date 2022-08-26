@@ -70,6 +70,7 @@ h1{
     margin:0;
 } */
 .diceAnimation {
+    background-color: red;
     animation: dice-roll 0.5s;
     /* animation: spin 0.5s ease-out; */
     /* animation-delay: calc(var(--delay) * -1s); */
