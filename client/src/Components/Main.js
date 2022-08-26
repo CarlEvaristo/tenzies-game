@@ -100,7 +100,7 @@ function Main(){
         }
     }
 
-    let diceElements = allDice.map(dice => {
+    const diceElements = allDice.map(dice => {
         return(
             <Dice 
                 key={dice.id} 
@@ -110,7 +110,7 @@ function Main(){
                 handleClick={handleClick}/>
         )
     })
-    
+
     return(
         <main>
             {!isFinished ? 
