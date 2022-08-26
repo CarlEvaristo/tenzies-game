@@ -128,11 +128,12 @@ function Main(){
                     <Confetti />
                     {!submitted ?
                     <>
-                        <div className="inline"><p>Your Score: {turn} rolls</p><button onClick={newGame}>New Game</button></div>
+                        <div className="inline"><p>Your Score: {turn} rolls</p>
                         <form className="inline" onSubmit={handleSubmit}>	
                             <input type="text" name="name" placeholder="Your Name" onChange={handleChange} />  
-                            <button>Save Score</button>
+                            <button>Save</button>
                         </form>
+                        <button onClick={newGame}>New Game</button></div>
                     </> : 
                     <>
                         <Highscore highScore={highScore} />
