@@ -79,6 +79,16 @@ function Main(){
         finishedArray.length === 10 && setIsFinished(true)                    
     }, [allDice])
 
+    function handleClick(index, value) {
+        if (diceValue === 0) {
+            setDiceValue(value)
+        }
+        if (diceValue === 0 || diceValue === value) {
+            return setAllDice(prevDice => prevDice.map(dice => {
+                return (dice.id === index) ? {...dice, isFinished:true} : dice
+            }))
+        } 
+    }
 
     function handleThrow(){
         setTurn(prevValue => prevValue + 1)
@@ -88,20 +98,6 @@ function Main(){
                 return (dice.isFinished === false) ? {...dice, value: getRandomDice()} : dice
             }))
         }
-    }
-
-    React.useEffect(()=>{
-        function handleClick(index, value) {
-            if (diceValue === 0) {
-                setDiceValue(value)
-            }
-            if (diceValue === 0 || diceValue === value) {
-                return setAllDice(prevDice => prevDice.map(dice => {
-                    return (dice.id === index) ? {...dice, isFinished:true} : dice
-                }))
-            } 
-        }
-
         setElements(allDice.map(dice => {
             return(
                 <Dice 
@@ -112,7 +108,8 @@ function Main(){
                     handleClick={handleClick}/>
             )
         }))
-    }, [allDice, diceValue])
+    }
+
 
     // const diceElements = allDice.map(dice => {
     //     return(
