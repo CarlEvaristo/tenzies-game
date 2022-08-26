@@ -3,17 +3,17 @@ import React from "react"
 export default function Dice(props){
     let diceValueChar = ""
     if (props.value === 1) {
-        diceValueChar = "one"
+        diceValueChar = "fa-solid fa-dice-one"
     } else if (props.value === 2) {
-        diceValueChar = "two"
+        diceValueChar = "fa-solid fa-dice-two"
     } else if (props.value === 3) {
-        diceValueChar = "three"
+        diceValueChar = "fa-solid fa-dice-three"
     } else if (props.value === 4) {
-        diceValueChar = "four"
+        diceValueChar = "fa-solid fa-dice-four"
     } else if (props.value === 5) {
-        diceValueChar = "five"
+        diceValueChar = "fa-solid fa-dice-five"
     } else {
-        diceValueChar = "six"
+        diceValueChar = "fa-solid fa-dice-six"
     }
 
     return(
@@ -22,8 +22,7 @@ export default function Dice(props){
             style={{backgroundColor: props.isFinished ? "#59E391" : "#fff"}} 
             onClick={()=>props.handleClick(props.id, props.value)}
             >
-            {/* <p>{props.value}</p> */}
-            <i class="fa-solid fa-dice-{diceValueChar}"></i>
+            <i class={diceValueChar}></i>
         </div>
     )
 }
