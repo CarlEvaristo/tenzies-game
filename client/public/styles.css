@@ -21,7 +21,7 @@ main{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 60vw;
+    width: 60%;
     padding:20px;
     border-radius: 10px;
     background-color: #F5F5F5;
@@ -134,9 +134,6 @@ ol {
     margin-top:0;
 }
 @media (max-width:1300px) {
-    main{
-        width: 80%;
-    }
     input {
         width:90%;
     }
