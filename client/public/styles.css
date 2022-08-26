@@ -71,9 +71,9 @@ h1{
 } */
 .diceAnimation {
     animation: dice-roll 0.5s;
-    animation: spin 1s linear infinite;
+    animation: spin 1s linear;
     animation-delay: calc(var(--delay) * -1s);
-     overflow:hidden;
+    overflow:hidden;
 }
 @keyframes spin {
     from {transform:rotate(0deg);}
