@@ -67,6 +67,7 @@ function Main(){
 
     function newGame(){
         setAllDice(newDiceArray())
+        setElements(newElementsArray())
         setTurn(0)
         setDiceValue(0)
         setIsFinished(false)
@@ -99,12 +100,13 @@ function Main(){
 
     function handleThrow(){
         setTurn(prevValue => prevValue + 1)
-        setElements(newElementsArray())  
+        // setElements(newElementsArray())  
         let finishedArray = allDice.filter(item => item.isFinished)
         if (finishedArray.length !== 0) {
             setAllDice(prevDice => prevDice.map(dice => {
                 return (dice.isFinished === false) ? {...dice, value: getRandomDice()} : dice
             }))
+            setElements(newElementsArray())  
         }
         
     }
