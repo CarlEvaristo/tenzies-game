@@ -71,22 +71,13 @@ h1{
 } */
 .diceAnimation {
     animation: dice-roll 0.5s;
-    
-    -webkit-transition-duration: 1s;
-    -moz-transition-duration: 1s;
-    -o-transition-duration: 1s;
-    transition-duration: 1s;
-
-    -webkit-transition-property: -webkit-transform;
-    -moz-transition-property: -moz-transform;
-    -o-transition-property: -o-transform;
-     transition-property: transform;
-
+    animation: spin 1s linear infinite;
+    animation-delay: calc(var(--delay) * -1s);
      overflow:hidden;
-
-    -webkit-transform:rotate(1080deg);
-    -moz-transform:rotate(1080deg); 
-    -o-transform:rotate(1080deg);
+}
+@keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
 }
 @keyframes dice-roll {
     0% {
