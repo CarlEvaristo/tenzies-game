@@ -111,4 +111,11 @@ ol {
         line-height: 1.8rem;
         margin: 10px;
     }
+    .inline {
+        flex-direction: column;
+    }
+    form {
+        display:flex;
+        flex-direction: column;
+    }
 }
