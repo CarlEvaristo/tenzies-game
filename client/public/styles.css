@@ -134,13 +134,16 @@ ol {
     margin-top:0;
 }
 @media (max-width:1300px) {
+    main{
+        width: 80%;
+    }
     input {
         width:90%;
     }
 }
 @media (max-width:800px) {
     main{
-        width: 95vw;
+        width: 95%;
     }
     .subText{
         font-size: 1.3rem;
