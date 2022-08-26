@@ -113,8 +113,8 @@ function Main(){
             setAllDice(prevDice => prevDice.map(dice => {
                 return (dice.isFinished === false) ? {...dice, value: getRandomDice()} : dice
             }))
-            setElements(newElementsArray())
         }
+        setElements(newElementsArray())
         
     }
 
