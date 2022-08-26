@@ -96,6 +96,7 @@ form input, .btn {
     box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.155);
 }
 .btn {
+    font-family: 'Karla', sans-serif;
     white-space: nowrap;
     min-width: max-content;
 }
@@ -111,7 +112,8 @@ form input {
     color: #000;
 }
 .btnLink {
-    cursor: pointer;
+    font-family: 'Karla', sans-serif;
+    white-space: nowrap;
     text-decoration: none;
     margin:1em;
     padding:0.5em 2em;
