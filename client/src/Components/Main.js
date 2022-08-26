@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import Dice from "./Dice"
 import Confetti from 'react-confetti'
 import Highscore from "./Highscore"
@@ -110,7 +110,6 @@ function Main(){
                 handleClick={handleClick}/>
         )
     })
-
 
 
     return(

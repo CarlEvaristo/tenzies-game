@@ -70,22 +70,13 @@ h1{
     margin:0;
 } */
 .diceAnimation {
-    animation: dice-roll 2s;
-    animation: spin 2s ease-out;
-    animation-delay: calc(var(--delay) * -2s);
+    animation: spin 0.5s ease-out;
+    animation-delay: calc(var(--delay) * -0.5s);
     overflow:hidden;
 }
 @keyframes spin {
     from {transform:rotate(0deg);}
     to {transform:rotate(360deg);}
-}
-@keyframes dice-roll {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
 }
 .disabled {
     cursor: not-allowed;
