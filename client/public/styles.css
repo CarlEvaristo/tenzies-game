@@ -88,7 +88,6 @@ input {
 }
 form input, .btn {
     cursor: pointer;
-    margin:1em;
     padding:0.5em 2em;
     border: none;
     background-color: #5035FF;
