@@ -6,15 +6,17 @@ html{
 }
 body{
     margin:0;
+    font-family: 'Inter', sans-serif;
+    font-family: 'Karla', sans-serif;
+    font-size: 1.6rem;
+}
+#root {
     background-color:#0B2434;
     width:100vw;
     height:100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Inter', sans-serif;
-    font-family: 'Karla', sans-serif;
-    font-size: 1.6rem;
 }
 main{
     display: flex;
