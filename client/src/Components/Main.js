@@ -56,9 +56,10 @@ function Main(){
             setDiceValue(value)
         }
         if (diceValue === 0 || diceValue === value) {
-            return setAllDice(prevDice => prevDice.map(dice => {
+            setAllDice(prevDice => prevDice.map(dice => {
                 return (dice.id === index) ? {...dice, isFinished:true} : dice
             }))
+            setElements(newElementsArray())
         } 
     }
 
