@@ -8,7 +8,6 @@ function Main(){
     const [isFinished, setIsFinished] = React.useState(false)
     const [diceValue, setDiceValue] = React.useState(0)
     const [allDice, setAllDice] = React.useState(newDiceArray())
-    const [elements, setElements] = React.useState(newElementsArray())
     const [score, setScore] = React.useState({
         name:"",
         score:0
@@ -51,38 +50,12 @@ function Main(){
         })  
     }
 
-    function handleClick(index, value) {
-        if (diceValue === 0) {
-            setDiceValue(value)
-        }
-        if (diceValue === 0 || diceValue === value) {
-            setAllDice(prevDice => prevDice.map(dice => {
-                return (dice.id === index) ? {...dice, isFinished:true} : dice
-            }))
-        } 
-        setElements(newElementsArray())
-    }
-
     function newDiceArray() {
         return new Array(10).fill(null).map((item,index)=> ({id: index+1, value: getRandomDice(), isFinished: false}))
-    }       
-
-    function newElementsArray() {
-        return allDice.map(dice => {
-            return(
-                <Dice 
-                    key={dice.id} 
-                    id={dice.id} 
-                    value={dice.value} 
-                    isFinished={dice.isFinished} 
-                    handleClick={handleClick}/>
-            )
-        })
-    }
+    }                                                           
 
     function newGame(){
         setAllDice(newDiceArray())
-        setElements(newElementsArray())
         setTurn(0)
         setDiceValue(0)
         setIsFinished(false)
@@ -106,29 +79,39 @@ function Main(){
     }, [allDice])
 
 
+   function handleClick(index, value) {
+        if (diceValue === 0) {
+            setDiceValue(value)
+        }
+        if (diceValue === 0 || diceValue === value) {
+            return setAllDice(prevDice => prevDice.map(dice => {
+                return (dice.id === index) ? {...dice, isFinished:true} : dice
+            }))
+        } 
+    }
+
     function handleThrow(){
         setTurn(prevValue => prevValue + 1)
         let finishedArray = allDice.filter(item => item.isFinished)
         if (finishedArray.length !== 0) {
-            setAllDice(prevDice => prevDice.map(dice => {
+            return setAllDice(prevDice => prevDice.map(dice => {
                 return (dice.isFinished === false) ? {...dice, value: getRandomDice()} : dice
             }))
         }
-        setElements(newElementsArray())
-        
     }
 
+    const diceElements = allDice.map(dice => {
+        return(
+            <Dice 
+                key={dice.id} 
+                id={dice.id} 
+                value={dice.value} 
+                isFinished={dice.isFinished} 
+                handleClick={handleClick}/>
+        )
+    })
 
-    // const diceElements = allDice.map(dice => {
-    //     return(
-    //         <Dice 
-    //             key={dice.id} 
-    //             id={dice.id} 
-    //             value={dice.value} 
-    //             isFinished={dice.isFinished} 
-    //             handleClick={handleClick}/>
-    //     )
-    // })
+
 
     return(
         <main>
@@ -137,7 +120,7 @@ function Main(){
                     <h1>Tenzies</h1>
                     <p className="subText">Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
                     <div className="diceContainer">
-                        {elements}
+                        {diceElements}
                     </div>
                     <button onClick={handleThrow} className="btn">Roll</button>
                 </> : 
@@ -164,4 +147,3 @@ function Main(){
 }
 
 export default Main
-
