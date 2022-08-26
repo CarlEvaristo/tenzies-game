@@ -21,7 +21,7 @@ export default function Dice(props){
             className={["dice", "diceAnimation"].join(' ')}
             style={{backgroundColor: props.isFinished ? "#59E391" : "#fff"}} 
             onClick={()=>props.handleClick(props.id, props.value)}
-            key={new Date().getTime()}
+            // key={new Date().getTime()}
             >
             {/* <p>{props.value}</p> */}
             <i class={diceValueChar}></i>
