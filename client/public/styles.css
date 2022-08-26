@@ -69,6 +69,33 @@ h1{
     font-size: 3rem;
     margin:0;
 } */
+.diceAnimation {
+    animation: dice-roll 0.5s;
+    
+    -webkit-transition-duration: 1s;
+    -moz-transition-duration: 1s;
+    -o-transition-duration: 1s;
+    transition-duration: 1s;
+
+    -webkit-transition-property: -webkit-transform;
+    -moz-transition-property: -moz-transform;
+    -o-transition-property: -o-transform;
+     transition-property: transform;
+
+     overflow:hidden;
+
+    -webkit-transform:rotate(1080deg);
+    -moz-transform:rotate(1080deg); 
+    -o-transform:rotate(1080deg);
+}
+@keyframes dice-roll {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
 .disabled {
     cursor: not-allowed;
     pointer-events: none;

@@ -18,7 +18,7 @@ export default function Dice(props){
 
     return(
         <div 
-            className="dice" 
+            className="dice .diceAnimation" 
             style={{backgroundColor: props.isFinished ? "#59E391" : "#fff"}} 
             onClick={()=>props.handleClick(props.id, props.value)}
             >
