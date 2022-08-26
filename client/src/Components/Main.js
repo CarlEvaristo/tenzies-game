@@ -90,18 +90,6 @@ function Main(){
         } 
     }
 
-    let diceElements = allDice.map(dice => {
-        return(
-            <Dice 
-                key={dice.id} 
-                id={dice.id} 
-                value={dice.value} 
-                isFinished={dice.isFinished} 
-                handleClick={handleClick}/>
-        )
-    })
-
-
     function handleThrow(){
         setTurn(prevValue => prevValue + 1)
         let finishedArray = allDice.filter(item => item.isFinished)
@@ -112,7 +100,17 @@ function Main(){
         }
     }
 
-
+    let diceElements = allDice.map(dice => {
+        return(
+            <Dice 
+                key={dice.id} 
+                id={dice.id} 
+                value={dice.value} 
+                isFinished={dice.isFinished} 
+                handleClick={handleClick}/>
+        )
+    })
+    
     return(
         <main>
             {!isFinished ? 
