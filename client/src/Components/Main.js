@@ -101,18 +101,30 @@ function Main(){
                 return (dice.isFinished === false) ? {...dice, value: getRandomDice()} : dice
             }))
         }
-    }
 
-    const diceElements = allDice.map(dice => {
-        return(
-            <Dice 
-                key={dice.id} 
-                id={dice.id} 
-                value={dice.value} 
-                isFinished={dice.isFinished} 
-                handleClick={handleClick}/>
-        )
-    })
+        diceElements = allDice.map(dice => {
+            return(
+                <Dice 
+                    key={dice.id} 
+                    id={dice.id} 
+                    value={dice.value} 
+                    isFinished={dice.isFinished} 
+                    handleClick={handleClick}/>
+            )
+        })
+    
+    }
+    let diceElements
+    // const diceElements = allDice.map(dice => {
+    //     return(
+    //         <Dice 
+    //             key={dice.id} 
+    //             id={dice.id} 
+    //             value={dice.value} 
+    //             isFinished={dice.isFinished} 
+    //             handleClick={handleClick}/>
+    //     )
+    // })
 
 
     return(
