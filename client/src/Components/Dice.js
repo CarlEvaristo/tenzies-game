@@ -21,6 +21,7 @@ export default function Dice(props){
             className="dice .diceAnimation" 
             style={{backgroundColor: props.isFinished ? "#59E391" : "#fff"}} 
             onClick={()=>props.handleClick(props.id, props.value)}
+            key={props.id}
             >
             {/* <p>{props.value}</p> */}
             <i class={diceValueChar}></i>
