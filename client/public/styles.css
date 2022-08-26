@@ -78,6 +78,8 @@ h1{
 }
 form {
     display:flex;
+}
+input {
     width: 60%;
 }
 form input,button {
