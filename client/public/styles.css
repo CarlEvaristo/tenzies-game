@@ -115,6 +115,9 @@ ol {
     form {
         flex-direction: column;
     }
+    .inline {
+        flex-direction: column;
+    }
 }
 @media (max-width:800px) {
     main{
@@ -124,8 +127,5 @@ ol {
         font-size: 1.3rem;
         line-height: 1.8rem;
         margin: 10px;
-    }
-    .inline {
-        flex-direction: column;
     }
 }
