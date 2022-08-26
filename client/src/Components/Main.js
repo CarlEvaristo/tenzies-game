@@ -93,6 +93,8 @@ function Main(){
         finishedArray.length === 10 && setIsFinished(true)       
     }
 
+    let diceElements
+    
     function handleThrow(){
         setTurn(prevValue => prevValue + 1)
         let finishedArray = allDice.filter(item => item.isFinished)
@@ -101,7 +103,7 @@ function Main(){
                 return (dice.isFinished === false) ? {...dice, value: getRandomDice()} : dice
             }))
 
-            
+
             diceElements = allDice.map(dice => {
                 return(
                     <Dice 
@@ -115,11 +117,9 @@ function Main(){
 
 
         }
-
-
     
     }
-    let diceElements
+
     // const diceElements = allDice.map(dice => {
     //     return(
     //         <Dice 
