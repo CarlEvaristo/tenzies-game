@@ -50,7 +50,7 @@ function Main(){
             score:turn
         })  
     }
-    
+
     function handleClick(index, value) {
         if (diceValue === 0) {
             setDiceValue(value)
@@ -66,7 +66,7 @@ function Main(){
         return new Array(10).fill(null).map((item,index)=> ({id: index+1, value: getRandomDice(), isFinished: false}))
     }       
 
-    function newElements() {
+    function newElementsArray() {
         return allDice.map(dice => {
             return(
                 <Dice 
@@ -81,7 +81,7 @@ function Main(){
 
     function newGame(){
         setAllDice(newDiceArray())
-        setElements(newElements())
+        setElements(newElementsArray())
         setTurn(0)
         setDiceValue(0)
         setIsFinished(false)
@@ -113,7 +113,7 @@ function Main(){
                 return (dice.isFinished === false) ? {...dice, value: getRandomDice()} : dice
             }))
         }
-        setElements(newElements())
+        setElements(newElementsArray())
     }
 
 
