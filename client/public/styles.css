@@ -76,6 +76,10 @@ h1{
     display:flex;
     align-items: center;
 }
+form {
+    display:flex;
+    width: 60%;
+}
 form input,button {
     cursor: pointer;
     margin:1em;
@@ -115,7 +119,6 @@ ol {
         flex-direction: column;
     }
     form {
-        display:flex;
         flex-direction: column;
     }
 }
