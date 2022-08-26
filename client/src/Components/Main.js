@@ -96,18 +96,15 @@ function Main(){
         let finishedArray = allDice.filter(item => item.isFinished)
         finishedArray.length === 1 && setDiceValue(finishedArray[0].value)
         finishedArray.length === 10 && setIsFinished(true)
-        setElements(newElementsArray())       
     }
 
     function handleThrow(){
-        setTurn(prevValue => prevValue + 1)
-        // setElements(newElementsArray())  
+        setTurn(prevValue => prevValue + 1) 
         let finishedArray = allDice.filter(item => item.isFinished)
         if (finishedArray.length !== 0) {
             setAllDice(prevDice => prevDice.map(dice => {
                 return (dice.isFinished === false) ? {...dice, value: getRandomDice()} : dice
             }))
-            setElements(newElementsArray())  
         }
         
     }
@@ -122,7 +119,7 @@ function Main(){
     //             handleClick={handleClick}/>
     //     )
     // })
-
+    setElements(newElementsArray())  
 
         return(
         <main>
