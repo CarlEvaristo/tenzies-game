@@ -8,6 +8,7 @@ function Main(){
     const [isFinished, setIsFinished] = React.useState(false)
     const [diceValue, setDiceValue] = React.useState(0)
     const [allDice, setAllDice] = React.useState(newDiceArray())
+    const [elements, setElements] = React.useState(renderDiceElements())
     const [score, setScore] = React.useState({
         name:"",
         score:0
@@ -100,8 +101,8 @@ function Main(){
         }
     }
 
-    function renderDiceElements () {
-        return allDice.map(dice => {
+    React.useEffect(()=>{
+        setElements(allDice.map(dice => {
             return(
                 <Dice 
                     key={dice.id} 
@@ -110,8 +111,8 @@ function Main(){
                     isFinished={dice.isFinished} 
                     handleClick={handleClick}/>
             )
-        })
-    }
+        }))
+    }, [allDice, handleClick])
 
     // const diceElements = allDice.map(dice => {
     //     return(
@@ -131,7 +132,7 @@ function Main(){
                     <h1>Tenzies</h1>
                     <p className="subText">Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
                     <div className="diceContainer">
-                        {renderDiceElements()}
+                        {elements}
                     </div>
                     <button onClick={handleThrow} className="btn">Roll</button>
                 </> : 
