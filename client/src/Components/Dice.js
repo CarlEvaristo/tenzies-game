@@ -21,7 +21,7 @@ export default function Dice(props){
             className={["dice", "diceAnimation"].join(' ')}
             style={{backgroundColor: props.isFinished ? "#59E391" : "#fff"}} 
             onClick={()=>props.handleClick(props.id, props.value)}
-            key={!props.isFinished ? new Date().getTime() : false}  // if prop is not finished then give it a unique key (time) => to make sure it will get re-rendered => else false makes sure react doesnt render the key attr
+            key={!props.isFinished ? new Date().getTime() : null}  // if prop is not finished then give it a unique key (time) => to make sure it will get re-rendered => else null makes sure react doesnt render the key attr
             >
             {/* <p>{props.value}</p> */}
             <i class={diceValueChar}></i>
