@@ -71,7 +71,7 @@ h1{
 } */
 .diceAnimation {
     animation: dice-roll 0.5s;
-    animation: spin 1s linear;
+    animation: spin 0.5s ease-out;
     animation-delay: calc(var(--delay) * -1s);
     overflow:hidden;
 }
