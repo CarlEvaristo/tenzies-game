@@ -59,8 +59,8 @@ function Main(){
             setAllDice(prevDice => prevDice.map(dice => {
                 return (dice.id === index) ? {...dice, isFinished:true} : dice
             }))
-            setElements(newElementsArray())
         } 
+        setElements(newElementsArray())
     }
 
     function newDiceArray() {
