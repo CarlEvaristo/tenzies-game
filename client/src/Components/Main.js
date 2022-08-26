@@ -129,7 +129,7 @@ function Main(){
                     {!submitted ?
                     <>
                         <p>Your Score: {turn} rolls</p>
-                        <form className="inline" onSubmit={handleSubmit}>	
+                        <form onSubmit={handleSubmit}>	
                             <input type="text" name="name" placeholder="Your Name" onChange={handleChange} />
                             <div className="inline">
                                 <button className="btn">Save</button>
