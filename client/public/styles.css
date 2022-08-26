@@ -154,6 +154,7 @@ ol {
     }
     .inline {
         flex-direction: column;
+        width: 100%;
     }
     .btnLink {
         width:100%;
