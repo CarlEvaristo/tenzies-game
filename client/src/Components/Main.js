@@ -50,6 +50,17 @@ function Main(){
             score:turn
         })  
     }
+    
+    function handleClick(index, value) {
+        if (diceValue === 0) {
+            setDiceValue(value)
+        }
+        if (diceValue === 0 || diceValue === value) {
+            return setAllDice(prevDice => prevDice.map(dice => {
+                return (dice.id === index) ? {...dice, isFinished:true} : dice
+            }))
+        } 
+    }
 
     function newDiceArray() {
         return new Array(10).fill(null).map((item,index)=> ({id: index+1, value: getRandomDice(), isFinished: false}))
@@ -93,16 +104,6 @@ function Main(){
         finishedArray.length === 10 && setIsFinished(true)                    
     }, [allDice])
 
-    function handleClick(index, value) {
-        if (diceValue === 0) {
-            setDiceValue(value)
-        }
-        if (diceValue === 0 || diceValue === value) {
-            return setAllDice(prevDice => prevDice.map(dice => {
-                return (dice.id === index) ? {...dice, isFinished:true} : dice
-            }))
-        } 
-    }
 
     function handleThrow(){
         setTurn(prevValue => prevValue + 1)
