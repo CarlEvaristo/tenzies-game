@@ -8,6 +8,7 @@ function Main(){
     const [isFinished, setIsFinished] = React.useState(false)
     const [diceValue, setDiceValue] = React.useState(0)
     const [allDice, setAllDice] = React.useState(newDiceArray())
+    const [elements,setElements] = React.useState(newElementsArray())
     const [score, setScore] = React.useState({
         name:"",
         score:0
@@ -19,8 +20,7 @@ function Main(){
         fetch("/api")
           .then((res) => res.json())
           .then((data) => setHighScore(data))
-      })
-
+    })
 
     function handleSubmit(event) {
         setSubmitted(true)
@@ -52,7 +52,18 @@ function Main(){
 
     function newDiceArray() {
         return new Array(10).fill(null).map((item,index)=> ({id: index+1, value: getRandomDice(), isFinished: false}))
-    }                                                           
+    }   
+    function newElementsArray() {
+        return allDice.map(dice => {
+            return(<Dice 
+                        key={dice.id} 
+                        id={dice.id} 
+                        value={dice.value} 
+                        isFinished={dice.isFinished} 
+                        handleClick={handleClick}/>
+            )
+        })
+    }                                                       
 
     function newGame(){
         setAllDice(newDiceArray())
@@ -93,6 +104,7 @@ function Main(){
             setAllDice(prevDice => prevDice.map(dice => {
                 return (dice.isFinished === false) ? {...dice, value: getRandomDice()} : dice
             }))
+            setElements(newElementsArray())
         }
     }
 
@@ -106,18 +118,7 @@ function Main(){
     //             handleClick={handleClick}/>
     //     )
     // })
-    const diceElements = () => {
-        return allDice.map(dice => {
-            return(
-                <Dice 
-                    key={dice.id} 
-                    id={dice.id} 
-                    value={dice.value} 
-                    isFinished={dice.isFinished} 
-                    handleClick={handleClick}/>
-            )
-        })
-    }
+
 
         return(
         <main>
@@ -126,7 +127,7 @@ function Main(){
                     <h1>Tenzies</h1>
                     <p className="subText">Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
                     <div className="diceContainer">
-                        {diceElements()}
+                        {elements}
                     </div>
                     <button onClick={handleThrow} className="btn">Roll</button>
                 </> : 
