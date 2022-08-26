@@ -84,8 +84,7 @@ form {
     flex-direction: column;
 }
 input {
-    width: 50%;
-    margin:1em 0;
+    width: 70%;
 }
 form input, .btn {
     cursor: pointer;
@@ -141,6 +140,7 @@ ol {
     }
     input {
         width:100%;
+        margin:1em 0;
     }
 }
 @media (max-width:800px) {
