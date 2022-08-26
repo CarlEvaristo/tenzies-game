@@ -65,14 +65,14 @@ h1{
     cursor: pointer;
     font-size: 4.5rem;
 }
-.dice p {
+/* .dice p {
     font-size: 3rem;
     margin:0;
-}
+} */
 .diceAnimation {
-    animation: dice-roll 0.5s;
-    /* animation: spin 0.5s ease-out; */
-    animation-delay: calc(var(--delay) * -1s);
+    animation: dice-roll 2s;
+    animation: spin 2s ease-out;
+    animation-delay: calc(var(--delay) * -2s);
     overflow:hidden;
 }
 @keyframes spin {
