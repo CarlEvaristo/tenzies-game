@@ -122,7 +122,7 @@ function Main(){
                     <div className="diceContainer">
                         {diceElements}
                     </div>
-                    <button onClick={handleThrow}>Roll</button>
+                    <button onClick={handleThrow} className="btn">Roll</button>
                 </> : 
                 <>
                     <Confetti />
