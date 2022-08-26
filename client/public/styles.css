@@ -108,6 +108,14 @@ form input {
 ol {
     margin-top:0;
 }
+@media (max-width:1300px) {
+    input {
+        width:90%;
+    }
+    form {
+        flex-direction: column;
+    }
+}
 @media (max-width:800px) {
     main{
         width: 95vw;
@@ -118,9 +126,6 @@ ol {
         margin: 10px;
     }
     .inline {
-        flex-direction: column;
-    }
-    form {
         flex-direction: column;
     }
 }
