@@ -55,20 +55,20 @@ h1{
 }
 
 .dice {
-    aspect-ratio: 1;
+    /* aspect-ratio: 1; */
     border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #fff;
+    /* background-color: #fff; */
     box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.155);
     cursor: pointer;
     font-size: 4.5rem;
 }
-.dice p {
+/* .dice p {
     font-size: 3rem;
     margin:0;
-}
+} */
 .disabled {
     cursor: not-allowed;
     pointer-events: none;
