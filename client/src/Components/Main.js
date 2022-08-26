@@ -53,10 +53,24 @@ function Main(){
 
     function newDiceArray() {
         return new Array(10).fill(null).map((item,index)=> ({id: index+1, value: getRandomDice(), isFinished: false}))
-    }                                                           
+    }       
+
+    function newElements() {
+        return allDice.map(dice => {
+            return(
+                <Dice 
+                    key={dice.id} 
+                    id={dice.id} 
+                    value={dice.value} 
+                    isFinished={dice.isFinished} 
+                    handleClick={handleClick}/>
+            )
+        })
+    }
 
     function newGame(){
         setAllDice(newDiceArray())
+        setElements(newElements())
         setTurn(0)
         setDiceValue(0)
         setIsFinished(false)
@@ -98,16 +112,7 @@ function Main(){
                 return (dice.isFinished === false) ? {...dice, value: getRandomDice()} : dice
             }))
         }
-        setElements(allDice.map(dice => {
-            return(
-                <Dice 
-                    key={dice.id} 
-                    id={dice.id} 
-                    value={dice.value} 
-                    isFinished={dice.isFinished} 
-                    handleClick={handleClick}/>
-            )
-        }))
+        setElements(newElements())
     }
 
 
