@@ -8,10 +8,7 @@ function Main(){
     const [isFinished, setIsFinished] = React.useState(false)
     const [diceValue, setDiceValue] = React.useState(0)
     const [allDice, setAllDice] = React.useState(newDiceArray())
-    const [score, setScore] = React.useState({
-        name:"",
-        score:0
-    })
+    const [score, setScore] = React.useState()
     const [highScore, setHighScore] = React.useState([])
     const [submitted, setSubmitted] = React.useState(false)
 
