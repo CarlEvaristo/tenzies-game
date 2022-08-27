@@ -23,8 +23,9 @@ export default function Dice(props){
             className={ props.isFinished ? "dice" : ["dice", "diceAnimation"].join(' ') }  
             style={{backgroundColor: props.isFinished ? "#59E391" : "#fff"}} 
             onClick={()=>props.handleClick(props.id, props.value)}
-            // key={ props.isFinished ? undefined : new Date().getTime() }  
-            key={ props.turn }  
+            // key={ props.isFinished ? undefined : new Date().getTime() } 
+            // this key changes after each turn and that signals react to re-render this (changing only textcontent or innerhtml doesnt actually make react re-render this component)
+            key={ props.turn }   
             >
                 {/* <p>{props.value}</p> */}
                 <i class={diceValueChar}></i>

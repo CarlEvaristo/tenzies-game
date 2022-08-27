@@ -8,7 +8,6 @@ function Main(){
     const [isFinished, setIsFinished] = React.useState(false)
     const [diceValue, setDiceValue] = React.useState(0)
     const [allDice, setAllDice] = React.useState(newDiceArray())
-    // const [elements,setElements] = React.useState(newElementsArray())
     const [score, setScore] = React.useState({
         name:"",
         score:0
@@ -53,21 +52,10 @@ function Main(){
     function newDiceArray() {
         return new Array(10).fill(null).map((item,index)=> ({id: index+1, value: getRandomDice(), isFinished: false}))
     }   
-    // function newElementsArray() {
-    //     return allDice.map(dice => {
-    //         return(<Dice 
-    //                     key={dice.id} 
-    //                     id={dice.id} 
-    //                     value={dice.value} 
-    //                     isFinished={dice.isFinished} 
-    //                     handleClick={handleClick}/>
-    //         )
-    //     })
-    // }                                                       
+                                                     
 
     function newGame(){
         setAllDice(newDiceArray())
-        // setElements(newElementsArray())
         setTurn(0)
         setDiceValue(0)
         setIsFinished(false)
@@ -84,12 +72,18 @@ function Main(){
         )
     }
 
-   function handleClick(index, value) {
+    // React.useEffect(()=>{
+    //     let finishedArray = allDice.filter(item => item.isFinished)
+    //     finishedArray.length === 1 && setDiceValue(finishedArray[0].value)
+    //     finishedArray.length === 10 && setIsFinished(true)                    
+    // }, [allDice])
+
+    function handleClick(index, value) {
         if (diceValue === 0) {
             setDiceValue(value)
         }
         if (diceValue === 0 || diceValue === value) {
-            return setAllDice(prevDice => prevDice.map(dice => {
+            setAllDice(prevDice => prevDice.map(dice => {
                 return (dice.id === index) ? {...dice, isFinished:true} : dice
             }))
         } 
