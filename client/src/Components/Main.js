@@ -116,7 +116,8 @@ function Main(){
                 id={dice.id} 
                 value={dice.value} 
                 isFinished={dice.isFinished} 
-                handleClick={handleClick}/>
+                handleClick={handleClick}
+                turn={turn}/>
         )
     })
 
