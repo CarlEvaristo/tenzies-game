@@ -16,10 +16,9 @@ function Main(){
         fetch("/api")
           .then((res) => res.json())
           .then((data) => setHighScore(data))
-    })
+    },[submitted])
 
     function handleSubmit(event) {
-        setSubmitted(true)
         event.preventDefault()
         const requestOptions = {
             method: "POST",
@@ -34,7 +33,7 @@ function Main(){
         };
         fetch("/api", requestOptions)
             .then((response) => response.json())
-            .then((data) => console.log(data))
+            .then((data) => setSubmitted(true))
     }
 
     function handleChange(event) {
