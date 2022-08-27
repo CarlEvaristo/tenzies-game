@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React from "react"
 import Dice from "./Dice"
 import Confetti from 'react-confetti'
 import Highscore from "./Highscore"
@@ -50,16 +50,12 @@ function Main(){
         return new Array(10).fill(null).map((item,index)=> ({id: index+1, value: getRandomDice(), isFinished: false}))
     }   
                                                      
-
     function newGame(){
         setAllDice(newDiceArray())
         setTurn(0)
         setDiceValue(0)
         setIsFinished(false)
-        setScore({
-            name:"",
-            score:0
-        }) 
+        setScore() 
         setSubmitted(false)     
     }
 
@@ -84,9 +80,6 @@ function Main(){
                 return (dice.id === index) ? {...dice, isFinished:true} : dice
             }))
         } 
-        // let finishedArray = allDice.filter(item => item.isFinished)
-        // finishedArray.length === 1 && setDiceValue(finishedArray[0].value)
-        // finishedArray.length === 10 && setIsFinished(true)
     }
 
     function handleThrow(){
@@ -97,7 +90,6 @@ function Main(){
                 return (dice.isFinished === false) ? {...dice, value: getRandomDice()} : dice
             }))
         }
-        
     }
 
     const diceElements = allDice.map(dice => {
@@ -111,7 +103,6 @@ function Main(){
                 turn={turn}/>
         )
     })
-
 
         return(
         <main>
