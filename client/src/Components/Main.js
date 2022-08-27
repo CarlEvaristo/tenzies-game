@@ -123,7 +123,7 @@ function Main(){
                             <input type="text" name="name" placeholder="Your Name" onChange={handleChange} />
                             <div className="inline">
                                 <button className="btn">Save</button>
-                                <a href="" onClick={newGame} className="btnLink">New Game</a>
+                                <a href="#" onClick={newGame} className="btnLink">New Game</a>
                             </div>
                         </form>
                     </> : 
