@@ -72,11 +72,11 @@ function Main(){
         )
     }
 
-    // React.useEffect(()=>{
-    //     let finishedArray = allDice.filter(item => item.isFinished)
-    //     finishedArray.length === 1 && setDiceValue(finishedArray[0].value)
-    //     finishedArray.length === 10 && setIsFinished(true)                    
-    // }, [allDice])
+    React.useEffect(()=>{
+        let finishedArray = allDice.filter(item => item.isFinished)
+        finishedArray.length === 1 && setDiceValue(finishedArray[0].value)
+        finishedArray.length === 10 && setIsFinished(true)                    
+    }, [allDice])
 
     function handleClick(index, value) {
         if (diceValue === 0) {
@@ -87,9 +87,9 @@ function Main(){
                 return (dice.id === index) ? {...dice, isFinished:true} : dice
             }))
         } 
-        let finishedArray = allDice.filter(item => item.isFinished)
-        finishedArray.length === 1 && setDiceValue(finishedArray[0].value)
-        finishedArray.length === 10 && setIsFinished(true)
+        // let finishedArray = allDice.filter(item => item.isFinished)
+        // finishedArray.length === 1 && setDiceValue(finishedArray[0].value)
+        // finishedArray.length === 10 && setIsFinished(true)
     }
 
     function handleThrow(){
